@@ -52,7 +52,6 @@ void loop() {
   led.show();
   delay(10000);
 
-
   movermouse();
   // Mover el cursor a la derecha
   led.setPixelColor(0, led.Color(255, 0, 0));
