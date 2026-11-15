@@ -33,6 +33,20 @@ void mouseorigen() {
   Mouse.move(-10, 25,0);
   Mouse.click(MOUSE_LEFT);
 }
+ void movimientos(int x, int y) {
+  Mouse.move(x, y, 0);
+  Mouse.click(MOUSE_LEFT);
+
+  delay(20);
+
+  Keyboard.press(KEY_LEFT_CTRL);
+  Keyboard.press('v');
+  delay(30);
+
+  Keyboard.releaseAll();
+  Mouse.move(32,0 , 0);
+  Mouse.click(MOUSE_LEFT);
+ }
 
 void movermouse() {
   mouseorigen();
@@ -40,23 +54,17 @@ void movermouse() {
     Mouse.move( 100, 100, 0);
     delay(1);  
   }
-  Mouse.move(-50, -40, 0);
-  Mouse.click(MOUSE_LEFT);
 
-  delay(200);
-
-  Keyboard.press(KEY_LEFT_CTRL);
-  Keyboard.press('v');
-  delay(150);
-
-  Keyboard.releaseAll();
-  delay(500);
   Mouse.move(0,-100,0);
   scrollHastaAbajo();
   Mouse.move(0,100,0);
-  Mouse.move(25,0 , 0);
-  Mouse.click(MOUSE_LEFT);
+
+  movimientos(-50, -40);
+  Mouse.move(-32,0,0);
+  movimientos(0,-20);
+  delay(1);
   mouseorigen();
+  Mouse.move(-400,-200.0);
 }
 
 void loop() {
