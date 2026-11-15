@@ -14,8 +14,7 @@ void setup() {
   led.setBrightness(50);
   led.clear();
   led.show();
-  Mouse.begin();
-}
+  Mouse.begin();}
 
 void loop() {
   // Esperar 10 segundos
@@ -34,5 +33,4 @@ void loop() {
   delay(100);
 
   // Regresar el cursor
-  Mouse.move(-10, 0, 0);
-}
+  Mouse.move(-10, 0, 0);}
