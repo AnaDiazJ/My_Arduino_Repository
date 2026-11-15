@@ -9,6 +9,14 @@ Adafruit_NeoPixel led(
   NUM_LEDS, LED_PIN, NEO_GRB + NEO_KHZ800
 );
 
+// Scroll hacia abajo
+void scrollHastaAbajo() {
+  for (int i = 0; i < 20; i++) {
+    Mouse.move(0, 0, -3);
+    delay(50);
+  }
+}
+
 void setup() {
   led.begin();
   led.setBrightness(50);
@@ -32,17 +40,23 @@ void movermouse() {
     Mouse.move( 100, 100, 0);
     delay(1);  
   }
-  Mouse.move(-40, -35, 0);
+  Mouse.move(-50, -40, 0);
   Mouse.click(MOUSE_LEFT);
-    // Presionar Ctrl + V
+
+  delay(200);
+
   Keyboard.press(KEY_LEFT_CTRL);
   Keyboard.press('v');
-  delay(100);
-  MOuse
-  // Soltar ambas teclas
-  Keyboard.releaseAll();
-  mouseorigen();
+  delay(150);
 
+  Keyboard.releaseAll();
+  delay(500);
+  Mouse.move(0,-100,0);
+  scrollHastaAbajo();
+  Mouse.move(0,100,0);
+  Mouse.move(25,0 , 0);
+  Mouse.click(MOUSE_LEFT);
+  mouseorigen();
 }
 
 void loop() {
@@ -53,15 +67,7 @@ void loop() {
   delay(10000);
 
   movermouse();
-  // Mover el cursor a la derecha
+
   led.setPixelColor(0, led.Color(255, 0, 0));
   led.show();
-  delay(100);
-
-  // Esperar 100 milisegundos
-  delay(500);
-
-
-
-  // Regresar el cursor
 }
