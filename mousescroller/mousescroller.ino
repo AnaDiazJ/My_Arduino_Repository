@@ -68,14 +68,17 @@ void movermouse() {
 }
 
 void loop() {
-  
-  // Esperar 10 segundos
   led.setPixelColor(0, led.Color(0, 0, 255));
   led.show();
-  delay(10000);
+  if (BOOTSEL) {
+    delay(30);                 // antirrebote
+    if (BOOTSEL) {
+      movermouse();
 
-  movermouse();
+      led.setPixelColor(0, led.Color(255, 0, 0));
+      led.show();
 
-  led.setPixelColor(0, led.Color(255, 0, 0));
-  led.show();
+      while (BOOTSEL) delay(10);  
+    }
+  }
 }
